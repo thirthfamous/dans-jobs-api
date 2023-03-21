@@ -1,9 +1,9 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { MODE } from "./config"
-import { Task } from "./entity/Task"
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USERNAME, MODE } from "./config"
+import { User } from "./entity/User"
 
-const entities = [Task]
+const entities = [User]
 let AppDataSource: DataSource
 
 console.log('Mode : ' + MODE)
@@ -20,11 +20,11 @@ if (MODE === 'test') {
     console.log(MODE)
     AppDataSource = new DataSource({
         type: "mysql",
-        host: "localhost",
-        port: 3306,
-        username: "root",
-        password: "farhan123",
-        database: "simple-express",
+        host: DB_HOST,
+        port: parseInt(DB_PORT),
+        username: DB_USERNAME,
+        password: DB_PASSWORD,
+        database: DB_NAME,
         synchronize: true,
         logging: true,
         entities: entities,
