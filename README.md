@@ -16,7 +16,8 @@ cd dans-jobs-api
 Create database
 
 ```sql
-CREATE DATABASE `job_db`
+CREATE DATABASE `job_db`;
+USE job_db;
 ```
 
 In `job_db` create the table
